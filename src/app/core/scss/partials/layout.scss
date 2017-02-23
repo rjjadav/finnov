@@ -1,0 +1,41 @@
+#main-container{
+  padding-top: 60px;
+
+  .section-dark {
+    background: $color-bg-dark;
+  }
+
+  .section-title-bg {
+    display: inline;
+    font-size: 115px;
+    font-weight: 800;
+    //height: 100%;
+    left: -415px;
+    opacity: 0.1;
+    position: absolute;
+    //top: -14px;
+    width: 100%;
+    text-align: center;
+    color: $color-default;
+  }
+
+  .section-title {
+    font-size: 48px;
+    font-weight: 700;
+    position: relative;
+    text-transform: capitalize;
+    top: 46px;
+  }
+
+  blockquote {
+    padding: 10px 20px;
+    font-size: 18px;
+    border-left: 2px solid $color-default;
+  }
+
+}
+.footer-copyright-section{
+  line-height: 45px;
+  background: #222222;
+  color: #999;
+}

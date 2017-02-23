@@ -1,0 +1,37 @@
+/*********** Responsive ***********/
+
+/*(min-width: 600px) and */
+@media (max-width: 959px) {
+
+  /*********** Commons ***********/
+  #main-container{
+    .section-title-bg{
+      display: none;
+    }
+
+    blockquote{
+      margin: 50px 0px;
+    }
+  }
+
+  /*********** Toolbar ***********/
+  #toolbar{
+    .md-toolbar-tools{
+      height: 64px;
+      max-height: 64px;
+    }
+  }
+
+
+  /********** Home Page ***********/
+  #home{
+    .contact-form{
+      margin-top: 60px;
+    }
+
+    .about-sub{
+      margin-top: 50px;
+    }
+  }
+
+}

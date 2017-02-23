@@ -1,0 +1,24 @@
+body{
+  min-height: 100% !important;
+  height: auto !important;
+}
+md-input-container {
+  .md-input{
+    border-width: 0px 0px 2px 0px;
+  }
+  &:not(.md-input-focused) {
+    label {
+      color: $color-label;
+    }
+  }
+}
+
+md-toolbar {
+  &.md-default-theme:not(.md-menu-toolbar) .md-button:not(.md-raised), &:not(.md-menu-toolbar) .md-button:not(.md-raised) {
+    color: rgba(0, 0, 0, 0.87);
+  }
+}
+//textarea.md-input {
+//  max-height: 80px;/* whatever max height you want */;
+//  overflow: auto;
+//}
