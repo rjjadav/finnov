@@ -35,7 +35,7 @@
         div.m-app-loading {
           position: fixed ;
         }
-        div.m-app-loading div.animated-container {
+        div.m-app-loading {
           background-color: #333333 ;
           bottom: 0px ;
           left: 0px ;
@@ -83,12 +83,23 @@
 
         <div class="messaging">
 
-          <h1>
-            App is Loading
-          </h1>
+          <div class="spinner-wrapper">
+            <div class="spinner">
+              <div class="inner">
+                <div class="gap"></div>
+                <div class="left">
+                  <div class="half-circle"></div>
+                </div>
+                <div class="right">
+                  <div class="half-circle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
 
           <p>
-            Please stand by for your ticket to awesome-town!
+            Loading...
           </p>
 
         </div>
