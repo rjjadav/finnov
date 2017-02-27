@@ -201,22 +201,35 @@
           <form name="contactForm" layout="column" flex="100" class="contact-form">
             <md-input-container class="md-accent" >
               <label>Name</label>
-              <input type="text" ng-model="home.contact.name"/>
+              <input type="text" name="contactName" ng-model="home.contact.name" required/>
+              <div ng-messages="contactForm.contactName.$error" ng-if="contactForm.contactName.$dirty || contactForm.contactName.$touched">
+                <div ng-message="required">Please enter your name. This is Required.</div>
+              </div>
             </md-input-container>
             <md-input-container class="md-accent" >
               <label>Email</label>
-              <input type="text" ng-model="home.contact.email"/>
+              <input type="email" ng-model="home.contact.email" name="email" required ng-pattern="/^.+@.+\..+$/"/>
+              <div ng-messages="contactForm.email.$error" ng-if="contactForm.email.$dirty || contactForm.email.$touched">
+                <div ng-message="required">Please enter your Email address. This is Required.</div>
+                <div ng-message="pattern">Please enter valid Email address. This doesn't look like Email</div>
+              </div>
             </md-input-container>
             <md-input-container class="md-accent" >
               <label>Subject</label>
-              <input type="text" ng-model="home.contact.subject"/>
+              <input type="text" name="subject" ng-model="home.contact.subject" required/>
+              <div ng-messages="contactForm.subject.$error" ng-if="contactForm.subject.$dirty || contactForm.subject.$touched">
+                <div ng-message="required">Please enter Subject. This is Required.</div>
+              </div>
             </md-input-container>
             <md-input-container class="md-accent">
-              <label>Biography</label>
-              <textarea ng-model="home.contact.message" rows="5"></textarea>
+              <label>Message</label>
+              <textarea name="message" ng-model="home.contact.message" rows="5" required></textarea>
+              <div ng-messages="contactForm.message.$error" ng-if="contactForm.message.$dirty || contactForm.message.$touched">
+                <div ng-message="required">Please enter Message. This is Required.</div>
+              </div>
             </md-input-container>
           </form>
-          <md-button class="md-raised md-accent send-button">
+          <md-button class="md-raised md-accent send-button" ng-disabled="!contactForm.$valid">
             <i class="material-icons">message</i>
             Send Message
           </md-button>

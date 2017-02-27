@@ -5,8 +5,8 @@
     <h2 md-truncate>FINNOV</h2>
   </div>
 
-<span flex></span>
-  <ul class="nav-menu">
+  <span flex></span>
+  <ul class="nav-menu" hide-sm hide-xs>
     <li class="active">
       <a class="link">Home</a>
     </li>
@@ -17,12 +17,45 @@
       <a class="link">Contact Us</a>
     </li>
     <li>
-      <a class="link">Login</a>
+      <a class="link" ng-click="header.login($event)">Login</a>
     </li>
     <li>
-      <a class="link">Register</a>
+      <a class="link" ng-click="header.register($event)">Register</a>
     </li>
   </ul>
+
+  <md-menu md-position-mode="target-right target" hide-gt-sm>
+    <md-button ng-click="$mdOpenMenu()" class="md-icon-button" aria-label="Open some menu">
+      <md-icon md-menu-origin class="material-icons">menu</md-icon>
+    </md-button>
+    <md-menu-content width="4">
+      <md-menu-item>
+        <md-button>
+          Home
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button>
+          About Us
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button>
+          Contact
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button ng-click="header.login($event)">
+          Login
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button ng-click="header.register($event)">
+          Register
+        </md-button>
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
 </div>
 
 

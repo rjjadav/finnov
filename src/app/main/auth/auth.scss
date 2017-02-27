@@ -1,0 +1,27 @@
+#auth-dialog {
+  .auth-toolbar {
+    background: $color-white !important;
+    color: $color-nav-toolbar !important;
+
+    .md-icon-button{
+      md-icon{
+        color: $color-nav-toolbar !important;
+      }
+
+    }
+  }
+
+  md-dialog-actions{
+    border-top: 1px solid rgba(0,0,0,0.10);
+
+    .md-button{
+      font-weight: 600;
+    }
+  }
+
+  &.forget-password{
+    p {
+      font-size: 14px;
+    }
+  }
+}

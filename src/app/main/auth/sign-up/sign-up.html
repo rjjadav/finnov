@@ -1,0 +1,117 @@
+<md-dialog id="auth-dialog" flex="35" class="sign-up">
+  <form ng-cloak name="signupForm">
+    <md-toolbar class="auth-toolbar">
+      <div class="md-toolbar-tools">
+        <span flex></span>
+        <div layout="column">
+          <h1>Register</h1>
+        </div>
+        <span flex layout="row" layout-align="end center">
+          <md-button class="md-icon-button" ng-click="signup.cancel()">
+            <md-icon class="material-icons">clear</md-icon>
+          </md-button>
+        </span>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <div layout="column">
+          <md-input-container>
+            <label>Full Name</label>
+            <input type="text" ng-model="signup.cred.name" name="fullName" required/>
+            <div ng-messages="signupForm.fullName.$error" ng-if="signupForm.fullName.$dirty || signupForm.fullName.$touched">
+              <div ng-message="required">Please enter Full Name. This is Required.</div>
+            </div>
+          </md-input-container>
+
+          <div layout="row" class="mb-10">
+            <label class="signup-label mr-15">Gender</label>
+            <md-radio-group ng-model="signup.cred.gender" layout="row" class="md-primary">
+              <md-radio-button value="male">Male</md-radio-button>
+              <md-radio-button value="female">Female</md-radio-button>
+            </md-radio-group>
+          </div>
+
+          <div layout="column" class="mb-10">
+            <label class="signup-label">Birthday</label>
+            <div layout="row">
+              <md-input-container flex>
+                <label>Month</label>
+                <md-select name="month" ng-model="signup.month" required>
+                  <md-option value="1">January</md-option>
+                  <md-option value="2">February</md-option>
+                  <md-option value="3">March</md-option>
+                  <md-option value="4">April</md-option>
+                  <md-option value="5">May</md-option>
+                  <md-option value="6">June</md-option>
+                  <md-option value="7">July</md-option>
+                  <md-option value="8">August</md-option>
+                  <md-option value="9">September</md-option>
+                  <md-option value="10">October</md-option>
+                  <md-option value="11">November</md-option>
+                  <md-option value="12">December</md-option>
+                </md-select>
+              </md-input-container>
+              <md-input-container flex>
+                <label>Day</label>
+                <md-select name="date" ng-model="signup.date" required>
+                  <md-option ng-repeat="date in signup.dateArray" value="{{date}}">{{date}}</md-option>
+                </md-select>
+              </md-input-container>
+              <md-input-container flex>
+                <label>Year</label>
+                <md-select name="month" ng-model="signup.year" required>
+                  <md-option ng-repeat="year in signup.yearArray" value="{{year}}">{{year}}</md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+
+          <md-input-container>
+            <label>Mobile Number</label>
+            <input type="email" name="mobile" ng-model="login.cred.mobileNumber" required />
+            <div ng-messages="signupForm.mobile.$error" ng-if="signupForm.mobile.$dirty || signupForm.mobile.$touched">
+              <div ng-message="required">Please enter Mobile Number. This is Required.</div>
+              <div ng-message="pattern">Please enter valid Email address. This doesn't look like Email</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container>
+            <label>Email</label>
+            <input type="email" name="email" ng-model="login.cred.email" ng-pattern="/^.+@.+\..+$/" required />
+            <div ng-messages="signupForm.email.$error" ng-if="signupForm.email.$dirty || signupForm.email.$touched">
+              <div ng-message="required">Please enter Email. This is Required.</div>
+              <div ng-message="pattern">Please enter valid Email address. This doesn't look like Email</div>
+            </div>
+          </md-input-container>
+
+
+
+          <md-input-container>
+            <label>Password</label>
+            <input type="password" ng-model="login.cred.password" name="password" required />
+            <div ng-messages="signupForm.password.$error" ng-if="signupForm.password.$dirty || signupForm.password.$touched">
+              <div ng-message="required">Please enter Password. This is Required.</div>
+
+            </div>
+          </md-input-container>
+
+          <md-button class="md-raised md-primary" ng-disabled="!signupForm.$valid">
+            Register
+          </md-button>
+        </div>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <div layout="row" layout-margin flex="100">
+        <span flex>
+          <b>Already have Account?</b>
+        </span>
+        <md-button class="md-accent" ng-click="signup.login()">
+          Login
+        </md-button>
+      </div>
+
+    </md-dialog-actions>
+  </form>
+</md-dialog>

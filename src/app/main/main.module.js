@@ -5,6 +5,7 @@
   'use strict';
 
   angular.module('app.main',[
+    'app.main.auth',
     'app.main.home'
   ])
     .config(config);
