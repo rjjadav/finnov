@@ -401,3 +401,24 @@ $border-style: 1px solid rgba(0, 0, 0, 0.12);
     border-radius: #{$i + 'px'}
   }
 }
+
+// Font-size
+@for $i from 1 through 50 {
+  .fs-#{$i},
+  .font-size-#{$i} {
+    font-size: #{$i + 'px'};
+  }
+}
+
+
+.success{
+  color: $color-success;
+}
+
+.font-white {
+  color : $color-white !important;
+}
+
+.font-bold {
+  font-weight: 500;
+}

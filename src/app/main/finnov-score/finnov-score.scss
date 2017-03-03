@@ -1,0 +1,38 @@
+#finnov-score{
+  .finnov-score-container{
+    min-height: 450px;
+  }
+
+  .sub-section-title {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+    margin: 5px 20px 10px 20px;
+    font-weight: 500;
+    //font-size: 24px;
+  }
+
+  .sub-section-icon{
+    font-size: 50px;
+    color: $color-default;
+  }
+
+  .sub-section-content{
+    min-height: 300px;
+  }
+
+  .action-button{
+    text-transform: capitalize;
+    border: 1px solid;
+
+
+    //&:hover{
+    //  background: $color-accent;
+    //  color: $color-white;
+    //  border-radius: 3px;
+    //
+    //  md-icon {
+    //    color: $color-white !important;
+    //  }
+    //}
+  }
+}

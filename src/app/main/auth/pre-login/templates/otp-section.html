@@ -1,0 +1,49 @@
+<!--<div ng-if="!pre.showMobileScreen && !pre.showPasswordScreen && pre.showOtpScreen">-->
+  <md-toolbar class="auth-toolbar">
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" ng-click="pre.back()">
+        <md-icon class="material-icons">arrow_back</md-icon>
+      </md-button>
+      <div layout="column" flex>
+        <h1>Enter OTP</h1>
+      </div>
+      <span flex layout="row" layout-align="end center">
+          <md-button class="md-icon-button" ng-click="pre.cancel()">
+            <md-icon class="material-icons">clear</md-icon>
+          </md-button>
+        </span>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <div class="md-dialog-content">
+      <form ng-cloak name="otpForm">
+        <div layout="column">
+          <div layout="row">
+            <p flex>
+              Mobile Number: <strong>{{pre.cred.mobileNumber}}</strong>
+            </p>
+            <md-button class="md-icon-button md-accent" ng-click="pre.back()">
+              <md-tooltip>Edit</md-tooltip>
+              <md-icon class="material-icons">edit</md-icon>
+            </md-button>
+          </div>
+
+          <p class="success fs-10">
+            Enter One Time Password below. A One Time Password was sent to the mobile number you have Provided.
+          </p>
+
+          <md-input-container>
+            <label>OTP</label>
+            <input type="password" name="password" ng-model="pre.cred.password" required/>
+            <div ng-messages="otpForm.password.$error" ng-if="otpForm.password.$dirty || otpForm.password.$touched">
+              <div ng-message="required">Please enter OTP. This is Required.</div>
+            </div>
+          </md-input-container>
+          <md-button class="md-raised md-primary" ng-click="pre.register()" ng-disabled="!otpForm.$valid">
+            Submit
+          </md-button>
+        </div>
+      </form>
+    </div>
+  </md-dialog-content>
+<!--</div>-->

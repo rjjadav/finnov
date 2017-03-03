@@ -7,14 +7,42 @@
   angular.module('app.header')
     .controller('HeaderController',HeaderController);
 
-  HeaderController.$inject =['$mdMenu','$mdDialog'];
-  function HeaderController($mdMenu, $mdDialog) {
+  HeaderController.$inject =['$mdMenu','$mdDialog','UserService'];
+  function HeaderController($mdMenu, $mdDialog, UserService) {
+
     var header = this;
+    header.preLogin = preLogin;
     header.login = login;
     header.register = register;
     header.forgetPassword = forgetPassword;
-
     header.openMenu = openMenu;
+
+    header.loginStatus = UserService.getLoginStatus();
+    header.username = UserService.getUsername();
+
+    function preLogin(ev, purpose){
+      $mdDialog.show({
+        templateUrl: 'app/main/auth/pre-login/pre-login.html',
+        controller: 'PreLoginController',
+        controllerAs: 'pre',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose:false,
+        fullscreen: true,
+        locals:{
+          purpose : purpose
+        }
+      })
+        .then(function(data){
+          if(data.next && data.next == 'dashboard') header.goto('app.main_dashbaord');
+          else if(data.next && data.next == 'signup') header.register(ev);
+          else if(data.status) {
+            header.loginStatus = UserService.getLoginStatus();
+            header.username = UserService.getUsername();
+          }
+          // else if(data.next && data.next == 'forget_password') header.forgetPassword(ev);
+        });
+    }
 
     function login(ev){
       $mdDialog.show({

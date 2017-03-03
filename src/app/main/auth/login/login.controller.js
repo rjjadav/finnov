@@ -20,7 +20,6 @@
     }
 
     function signup() {
-      console.log('signup');
       $mdDialog.hide({next:"signup"})
     }
 

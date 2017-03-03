@@ -1,8 +1,17 @@
+body{
+  background: #f3f3f3;
+}
+
 #main-container{
   padding-top: 60px;
+  padding-bottom: 45px;
 
   .section-dark {
     background: $color-bg-dark;
+  }
+
+  .section-white {
+    background: $color-white;
   }
 
   .section-title-bg {
@@ -17,6 +26,8 @@
     width: 100%;
     text-align: center;
     color: $color-default;
+    margin: 0 0 0 0;
+    line-height: 1.25em;
   }
 
   .section-title {
@@ -24,7 +35,7 @@
     font-weight: 700;
     position: relative;
     text-transform: capitalize;
-    top: 46px;
+    top: 15px;
   }
 
   blockquote {
@@ -38,4 +49,8 @@
   line-height: 45px;
   background: #222222;
   color: #999;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right:0;
 }

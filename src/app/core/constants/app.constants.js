@@ -8,6 +8,10 @@
   CONST.$inject = [];
 
   function CONST(){
-
+    var data ={
+      PRE_LOGIN_PURPOSE_LOGIN : 'login',
+      PRE_LOGIN_PURPOSE_REGISTER : 'register',
+    }
+    return data;
   }
 })();

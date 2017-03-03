@@ -1,0 +1,79 @@
+<div layout="column" class="full-height">
+
+  <h2 class="sub-section-title">
+    Reports
+  </h2>
+  <div layout="column" class="sub-section-content" layout-fill layout-align="center center" flex ng-if="false">
+    <div layout="column" layout-align="center center">
+      <md-icon class="fa fa-file-pdf-o sub-section-icon"></md-icon>
+      <p>You don't have generated Finnov Report.</p>
+      <md-button class="md-raised md-accent ph-20 pv-10 font-white font-bold">
+        Generate Finnov Score
+      </md-button>
+    </div>
+  </div>
+
+  <div layout="column" class="sub-section-content ph-20" layout-fill layout-align="start center" flex ng-if="true">
+    <!--<div class="full-width">-->
+      <div layout="row" layout-align="center center" layout-fill>
+        <span flex></span>
+        <p>
+          <b>Generate Finnov Score of this month</b>
+        </p>
+        <md-button class="md-raised md-primary ph-30 pv-5 font-white font-bold">
+          Generate Now
+        </md-button>
+      </div>
+      <div layout="row" layout-fill class="no-margin">
+      <md-list flex="100">
+        <md-divider></md-divider>
+        <md-list-item layout="row" flex>
+          <span flex="30"  layout="row" layout-align="center center">
+            <strong>Month</strong>
+          </span>
+          <span flex="30"  layout="row" layout-align="center center">
+            <strong>Score(Out of 100)</strong>
+          </span>
+          <!--<span flex="40" layout="row" layout-align="center center">-->
+            <!--<strong>Report</strong>-->
+          <!--</span>-->
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-list-item layout="row" flex ng-click="null">
+          <span flex="30"  layout="row" layout-align="center center">
+            November 2016
+          </span>
+          <span flex="30"  layout="row" layout-align="center center">
+            73
+          </span>
+
+          <span flex="40" layout="row" layout-align="end center">
+            <md-button class="md-accent action-button">
+              <md-icon class="fa fa-file-pdf-o"></md-icon>
+              Download Report
+            </md-button>
+          </span>
+          <md-divider flex="100"></md-divider>
+        </md-list-item>
+        <md-list-item layout="row" flex ng-click="null">
+          <span flex="30"  layout="row" layout-align="center center">
+            December 2016
+          </span>
+          <span flex="30"  layout="row" layout-align="center center">
+            78
+          </span>
+          <span flex="40" layout="row" layout-align="end center">
+            <md-button class="md-accent action-button" ng-click="null">
+              <md-icon class="fa fa-file-pdf-o"></md-icon>
+              Download Report
+            </md-button>
+          </span>
+          <md-divider flex="100"></md-divider>
+        </md-list-item>
+      </md-list>
+      </div>
+    <!--</div>-->
+  </div>
+
+</div>
+

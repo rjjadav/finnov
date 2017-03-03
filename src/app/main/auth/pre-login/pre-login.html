@@ -1,0 +1,24 @@
+<md-dialog id="auth-dialog" flex="30" aria-label="dialog">
+  <ng-include
+    src="'app/main/auth/pre-login/templates/mobile-number.html'"
+    ng-if="pre.showMobileScreen && !pre.showPasswordScreen && !pre.showOtpScreen">
+  </ng-include>
+
+  <ng-include
+    src="'app/main/auth/pre-login/templates/password-section.html'"
+    ng-if="!pre.showMobileScreen && pre.showPasswordScreen && !pre.showOtpScreen">
+  </ng-include>
+
+
+  <ng-include
+    src="'app/main/auth/pre-login/templates/otp-section.html'"
+    ng-if="!pre.showMobileScreen && !pre.showPasswordScreen && pre.showOtpScreen">
+  </ng-include>
+
+
+
+
+
+</md-dialog>
+
+

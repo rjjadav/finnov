@@ -16,11 +16,14 @@
     <li>
       <a class="link">Contact Us</a>
     </li>
-    <li>
-      <a class="link" ng-click="header.login($event)">Login</a>
+    <li ng-if="header.loginStatus == false">
+      <a class="link" ng-click="header.preLogin($event,'login')">Login</a>
     </li>
-    <li>
-      <a class="link" ng-click="header.register($event)">Register</a>
+    <li ng-if="header.loginStatus == false">
+      <a class="link" ng-click="header.preLogin($event, 'register')">Register</a>
+    </li>
+    <li ng-if="header.loginStatus == true">
+      <a class="link" ng-click="header.preLogin($event, 'register')">Rahul Jadav</a>
     </li>
   </ul>
 
@@ -45,12 +48,12 @@
         </md-button>
       </md-menu-item>
       <md-menu-item>
-        <md-button ng-click="header.login($event)">
+        <md-button ng-click="header.preLogin($event, 'login')">
           Login
         </md-button>
       </md-menu-item>
       <md-menu-item>
-        <md-button ng-click="header.register($event)">
+        <md-button ng-click="header.preLogin($event, 'register')">
           Register
         </md-button>
       </md-menu-item>
