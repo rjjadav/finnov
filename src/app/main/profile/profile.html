@@ -1,0 +1,163 @@
+<div layout="column" class="ph-10" id="profile">
+  <div layout="column" class="profile-page-header md-whiteframe-3dp">
+    <img src="/assets/images/profile-bg.jpeg" class="bg-image">
+    <div class="profile-picture md-whiteframe-8dp">
+      <img src="{{profile.profileInfo.profilePic}}" >
+    </div>
+    <div layout="row" layout-margin class="h-100 profile-header-content" >
+      <h2>{{profile.profileInfo.name}}</h2>
+    </div>
+  </div>
+
+
+  <div layout="row" flex >
+    <div flex="35"  layout="row">
+      <div flex>
+        <md-card flex>
+        <md-list class="personal-info">
+          <md-list-item class="ml-16">
+            <h3>
+              Account Info
+            </h3>
+            <span flex></span>
+            <md-button class="md-icon-button md-accent">
+              <md-tooltip>Edit Account Info</md-tooltip>
+              <md-icon class="material-icons">edit</md-icon>
+            </md-button>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item class="secondary-button-padding">
+            <p>
+              <md-icon class="material-icons">account_circle</md-icon>
+              Name
+            </p>
+            <span>{{profile.profileInfo.name}}</span>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item class="secondary-button-padding">
+            <p>
+              <md-icon class="material-icons">phone</md-icon>
+              Mobile Number
+            </p>
+            <span>{{profile.profileInfo.mobileNumber}}</span>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item class="secondary-button-padding">
+            <p>
+              <md-icon class="material-icons">mail_outline</md-icon>
+              Email
+            </p>
+            <span>{{profile.profileInfo.email}}</span>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item class="secondary-button-padding">
+            <p>
+              <md-icon class="fa fa-user fs-18"></md-icon>
+              Gender
+            </p>
+            <span>{{profile.profileInfo.gender | uppercase}}</span>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item class="secondary-button-padding">
+            <p>
+              <md-icon class="fa fa-birthday-cake fs-18"></md-icon>
+              Date Of Birth
+            </p>
+            <span>{{profile.profileInfo.dob}}</span>
+          </md-list-item>
+        </md-list>
+
+      </md-card>
+      </div>
+    </div>
+    <div flex >
+
+      <md-card flex>
+        <h3 class="ml-16 mt-30 mb-8">My KYC Vault</h3>
+        <md-list>
+          <md-divider></md-divider>
+          <md-list-item layout="row" layout-align="start center">
+            <span flex="30">
+              <strong>
+                Document
+              </strong>
+            </span>
+            <span flex="15">
+              <strong>
+                Uploaded
+              </strong>
+            </span>
+            <span flex="15">
+              <strong>
+                Status
+              </strong>
+            </span>
+            <span flex="15">
+              <strong>
+                Verified
+              </strong>
+            </span>
+            <span flex="15">
+              <strong>
+                Upload
+              </strong>
+            </span>
+            <span flex="10">
+              <strong>
+                Kyc*
+              </strong>
+            </span>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item layout="row" layout-align="start center" ng-repeat="kyc in profile.kycVault" flex ng-click="null">
+            <span flex="30">
+              <!--<strong>-->
+                {{kyc.document}}
+              <!--</strong>-->
+            </span>
+            <span flex="15">
+              <!--<strong>-->
+                {{(kyc.uploaded ? 'Yes' : 'No')}}
+              <!--</strong>-->
+            </span>
+            <span flex="15">
+              <!--<strong>-->
+                {{kyc.status}}
+              <!--</strong>-->
+            </span>
+            <span flex="15">
+              <!--<strong>-->
+                {{kyc.verified}}
+              <!--</strong>-->
+            </span>
+            <span flex="15">
+              <span ng-if="!kyc.uploadRequired">Not Required</span>
+              <a href="javascript:void(0)" ng-if="kyc.uploadRequired">Upload</a>
+            </span>
+            <span flex="10">
+              <!--<strong>-->
+                {{kyc.kyc}}
+              <!--</strong>-->
+            </span>
+            <md-divider flex="100"></md-divider>
+          </md-list-item>
+          <md-list-item>
+            <span>
+              <strong>*
+                I :</strong>
+              Can be used as Identity Proof
+            </span>
+            <span>
+              <strong>&nbsp;&nbsp;A :</strong>
+              Can be used as Address Proof
+            </span>
+            <span>
+              <strong>&nbsp;&nbsp;IA :</strong>
+              Can be used as Identity & Address Proof
+            </span>
+          </md-list-item>
+        </md-list>
+      </md-card>
+    </div>
+  </div>
+</div>

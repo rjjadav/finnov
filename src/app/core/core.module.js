@@ -13,6 +13,7 @@
     'ngAria',
     'ui.router',
     'ngMaterial',
+    'ngFileUpload',
     'toastr'
   ])
     .config(config);

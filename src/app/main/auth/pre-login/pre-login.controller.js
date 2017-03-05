@@ -57,7 +57,7 @@
 
     function verify(){
       UserService.setLoginStatus(true);
-      $mdDialog.hide({status: true})
+      $mdDialog.hide({status: true, next: 'score'});
     }
   }
 })();

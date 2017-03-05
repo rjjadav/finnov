@@ -7,7 +7,8 @@
   angular.module('app.main',[
     'app.main.auth',
     'app.main.home',
-    'app.main.finnov-score'
+    'app.main.finnov-score',
+    'app.main.profile'
   ])
     .config(config);
 

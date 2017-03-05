@@ -7,8 +7,8 @@
   angular.module('app.header')
     .controller('HeaderController',HeaderController);
 
-  HeaderController.$inject =['$mdMenu','$mdDialog','UserService'];
-  function HeaderController($mdMenu, $mdDialog, UserService) {
+  HeaderController.$inject =['$state','$mdMenu','$mdDialog','UserService'];
+  function HeaderController($state, $mdMenu, $mdDialog, UserService) {
 
     var header = this;
     header.preLogin = preLogin;
@@ -16,6 +16,7 @@
     header.register = register;
     header.forgetPassword = forgetPassword;
     header.openMenu = openMenu;
+    header.goto = goto;
 
     header.loginStatus = UserService.getLoginStatus();
     header.username = UserService.getUsername();
@@ -36,6 +37,11 @@
         .then(function(data){
           if(data.next && data.next == 'dashboard') header.goto('app.main_dashbaord');
           else if(data.next && data.next == 'signup') header.register(ev);
+          else if(data.next && data.next == 'score' ){
+            header.loginStatus = UserService.getLoginStatus();
+            header.username = UserService.getUsername();
+            header.goto('app.main_finnov-score.reports');
+          }
           else if(data.status) {
             header.loginStatus = UserService.getLoginStatus();
             header.username = UserService.getUsername();
@@ -92,6 +98,10 @@
 
     function openMenu(ev){
       $mdMenu.open(ev);
+    }
+
+    function goto(state){
+      $state.go(state)
     }
   }
 })();

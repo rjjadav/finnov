@@ -7,23 +7,23 @@
 
   <span flex></span>
   <ul class="nav-menu" hide-sm hide-xs>
-    <li class="active">
-      <a class="link">Home</a>
+    <li ui-sref-active="active">
+      <a class="link" ui-sref="app.main_home">Home</a>
     </li>
-    <li>
+    <li ui-sref-active="active">
       <a class="link">About Us</a>
     </li>
-    <li>
+    <li ui-sref-active="active">
       <a class="link">Contact Us</a>
-    </li>
+    </li >
     <li ng-if="header.loginStatus == false">
       <a class="link" ng-click="header.preLogin($event,'login')">Login</a>
     </li>
-    <li ng-if="header.loginStatus == false">
+    <li ng-if="header.loginStatus == false" >
       <a class="link" ng-click="header.preLogin($event, 'register')">Register</a>
     </li>
-    <li ng-if="header.loginStatus == true">
-      <a class="link" ng-click="header.preLogin($event, 'register')">Rahul Jadav</a>
+    <li ui-sref-active="active" ng-if="header.loginStatus == true">
+      <a class="link" ui-sref="app.main_profile">Rahul Jadav</a>
     </li>
   </ul>
 

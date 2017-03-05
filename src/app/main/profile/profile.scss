@@ -1,0 +1,45 @@
+#profile{
+
+  .profile-page-header{
+    height:350px;
+    background: $color-white;
+    margin: 20px 10px;
+
+    .bg-image{
+      height:250px;
+      width:100%;
+    }
+
+    .profile-picture{
+      width: 110px;
+      height:110px;
+      position: absolute;
+      background: gray;
+      border-radius: 50%;
+      top: 260px;
+      left: 50px;
+
+      img{
+        border-radius: 50%;
+      }
+    }
+
+    .profile-header-content{
+      margin-left: 150px;
+    }
+  }
+
+  .personal-info{
+    p {
+      color: $color-label;
+    }
+  }
+
+  a {
+    color: $color-accent;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}

@@ -35,5 +35,15 @@
           }
         }
       })
+      .state('app.main_finnov-score.generate',{
+        url: '/generate',
+        views:{
+          'finnovScoreContent@app.main_finnov-score':{
+            templateUrl: 'app/main/finnov-score/generate-score/generate-score.html',
+            controller: 'GenerateScoreController',
+            controllerAs: 'score'
+          }
+        }
+      })
   }
 })();

@@ -1,0 +1,112 @@
+<div layout="column" class="full-height" id="generate-score">
+
+  <h2 class="sub-section-title">
+    Generate Score
+  </h2>
+  <div layout="column" class="sub-section-content" layout-fill layout-align="start center" flex>
+
+    <span>You need to upload your Bank Statement to generate your FINNOV Score</span>
+    <span class="fw-700">(Download your bank statement in PDF format from your bank's website/app for the period of latest 6 months or more)</span>
+    <div layout="row" flex layout-fill layout-align="center start">
+      <form layout="column"  class="p-20" flex="95" layout-fill>
+        <div layout-gt-sm="column"  layout-sm="column" layout-xs="column" layout-margin >
+          <!--ng-if="score.bankDetails == 'bank'"-->
+          <div layout="row" flex>
+            <div flex-gt-sm="50" layout="column">
+              <div layout="row">
+                <md-input-container flex>
+                  <label>Select Bank</label>
+                  <md-select name="bank" ng-model="score.reports.bankName" required>
+                    <md-option value="icici">ICICI Bank</md-option>
+                    <md-option value="kotak">Kotak Mahindra Bank</md-option>
+                    <md-option value="hdfc">HDFC Bank</md-option>
+                  </md-select>
+                </md-input-container>
+              </div>
+
+              <div layout="row">
+                <md-input-container flex>
+                  <label>Select Branch</label>
+                  <md-select name="branch" ng-model="score.reports.branch" required>
+                    <md-option value="b1">Branch 1</md-option>
+                    <md-option value="b2">Branch 2</md-option>
+                    <md-option value="b3">Branch 3</md-option>
+                  </md-select>
+                </md-input-container>
+              </div>
+              <span class="pl-20 mb-10"><strong>OR</strong></span>
+              <div layout="row">
+                <md-input-container flex >
+                  <label>IFSC Code</label>
+                  <input type="text" ng-model="score.ifscCode" name="ifsc"/>
+                </md-input-container>
+              </div>
+            </div>
+            <div flex-gt-sm="50" hide-sm hide-xs layout-padding class="uploaded-files-section" ng-if="score.selectedFiles">
+              <h4>Uploaded Files</h4>
+              <ul class="ml-20">
+                <li ng-repeat="f in score.selectedFiles">
+                  {{f.name}}
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!--<div layout="row">-->
+            <!--<md-input-container flex="50">-->
+              <!--<label>Select Bank</label>-->
+              <!--<md-select name="bank" ng-model="score.reports.bankName" required>-->
+                <!--<md-option value="icici">ICICI Bank</md-option>-->
+                <!--<md-option value="kotak">Kotak Mahindra Bank</md-option>-->
+                <!--<md-option value="hdfc">HDFC Bank</md-option>-->
+              <!--</md-select>-->
+            <!--</md-input-container>-->
+          <!--</div>-->
+
+          <!--<div layout="row">-->
+            <!--<md-input-container flex="50">-->
+              <!--<label>Select Branch</label>-->
+              <!--<md-select name="branch" ng-model="score.reports.branch" required>-->
+                <!--<md-option value="b1">Branch 1</md-option>-->
+                <!--<md-option value="b2">Branch 2</md-option>-->
+                <!--<md-option value="b3">Branch 3</md-option>-->
+              <!--</md-select>-->
+            <!--</md-input-container>-->
+          <!--</div>-->
+
+        </div>
+        <!--<span class="pl-20 mb-10"><strong>OR</strong></span>-->
+        <!--<div layout="row" layout-sm="row" layout-xs="row" layout-margin layout-fill>-->
+          <!--<md-input-container flex-gt-sm="50" flex-sm flex-xs class="ml-16 pr-16">-->
+            <!--<label>IFSC Code</label>-->
+            <!--<input type="text" ng-model="score.ifscCode" name="ifsc"/>-->
+          <!--</md-input-container>-->
+        <!--</div>-->
+
+        <div layout="column" layout-align="center center"
+          class="file-upload-container" ng-model="score.selectedFiles"
+          ngf-drop ngf-select accept="application/pdf" ngf-multiple="true">
+
+          <md-icon class="material-icons fs-50">cloud_upload</md-icon>
+          <h3 class="mv-5 fw-600 fs-17">Drag & Drop Files Here</h3>
+          <p class="fs-12">or</p>
+
+          <md-button class="md-raised md-accent"
+            ng-model="score.selectedFiles"
+            ngf-drop ngf-select accept="application/pdf"
+            ngf-multiple="true">
+              Browse files
+          </md-button>
+        </div>
+
+        <div layout="row">
+          <md-button class="md-raised md-primary font-white ph-20 pv-5 mt-30 ml-0">Upload & Generate</md-button>
+        </div>
+
+      </form>
+    </div>
+
+
+
+  </div>
+</div>
+
