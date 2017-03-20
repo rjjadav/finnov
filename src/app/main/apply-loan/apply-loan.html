@@ -45,9 +45,12 @@
           <form name="loanAddressForm" flex="50" class="loan-application-details pt-100" layout="column">
           <md-input-container>
             <label>Enter Pincode</label>
-            <input type="text" ng-model="apply.loanDetails.currentAddress.pincode">
+            <input type="text" ng-model="apply.loanDetails.currentAddress.pincode" ng-keyup="apply.getAddress(apply.loanDetails.currentAddress.pincode)">
           </md-input-container>
-
+          <div layout="column" ng-if="apply.showCityState">
+            <span> City : <strong>Gurgaon</strong></span>
+            <span> State : <strong>Haryana</strong></span>
+          </div>
           <md-input-container>
             <label>Residence Type</label>
             <md-select ng-model="apply.loanDetails.currentAddress.residenceType">
@@ -74,14 +77,17 @@
               Same As Current Address
             </md-checkbox>
 
-            <md-input-container ng-if="!apply.loanDetails.permanentAddress.sameAsCurrentAddress">
+            <md-input-container ng-if="!apply.loanDetails.permanentAddress.sameAsCurrentAddress" >
               <label>Enter Pincode</label>
-              <input type="text" ng-model="apply.loanDetails.currentAddress.pincode">
+              <input type="text" ng-model="apply.loanDetails.permanentAddress.pincode" ng-keyup="apply.getPermanentAddress(apply.loanDetails.currentAddress.pincode)">
             </md-input-container>
-
+            <div layout="column" ng-if="apply.showPermanentCityState">
+              <span> City : <strong>Gurgaon</strong></span>
+              <span> State : <strong>Haryana</strong></span>
+            </div>
             <md-input-container ng-if="!apply.loanDetails.permanentAddress.sameAsCurrentAddress">
               <label>Residence Type</label>
-              <md-select ng-model="apply.loanDetails.currentAddress.residenceType">
+              <md-select ng-model="apply.loanDetails.permanentAddress.residenceType">
                 <md-option value="Self Owned">Self Owned</md-option>
                 <md-option value="Family Owned">Family Owned</md-option>
                 <md-option value="Rented">Rented</md-option>
