@@ -296,6 +296,21 @@
           <md-content layout="row" layout-align="center start">
             <form name="loanAddressProofForm" flex="50" class="loan-application-details pt-30" layout="column">
               <span class="fs-11 text-center">(Since your Address in aadhar card is matched with your Permanent Address You only need to provide current address proof to Us.)</span>
+
+              <md-input-container>
+                <label>Select Address Proof</label>
+                <md-select ng-model="apply.loanDetails.currentAddressProofType">
+                  <md-option value="Electricity Bill">Electricity Bill (Latest 3 months)</md-option>
+                  <md-option value="Landline Bill">Landline Bill (Latest 3 months)</md-option>
+                  <md-option value="Water Bill">Water Bill</md-option>
+                  <md-option value="Gas Bill">Gas Bill</md-option>
+                  <md-option value="Rent Agreement">Rent Agreement</md-option>
+                  <md-option value="Ration Card">Ration Card</md-option>
+                  <md-option value="Voters Id">Voters Id</md-option>
+                  <md-option value="Passport">Passport</md-option>
+                  <md-option value="Driving License">Driving License</md-option>
+                </md-select>
+              </md-input-container>
               <div layout="column" layout-align="center center"
                    class="file-upload-container" ng-model="apply.loanDetails.currentAddressProof"
                    ngf-drop ngf-select accept="image/*">
