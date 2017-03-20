@@ -8,7 +8,9 @@
     'app.main.auth',
     'app.main.home',
     'app.main.finnov-score',
-    'app.main.profile'
+    'app.main.profile',
+    'app.main.underwriters',
+    'app.main.apply-loan',
   ])
     .config(config);
 

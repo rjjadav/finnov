@@ -1,0 +1,417 @@
+<div layout="row" layout-align="center start" id="apply-loan">
+  <div layout="column" flex="85" layout-margin>
+    <h1>Loan Application</h1>
+    <md-content class="md-whiteframe-2dp brad-3 p-20">
+      <md-tabs md-dynamic-height md-selected="apply.active">
+      <md-tab label="one">
+        <h2 class="sub-section-title">
+          Loan Details
+        </h2>
+        <md-content layout="row" layout-align="center center">
+
+          <form name="loanDetailsForm" flex="50" class="loan-application-details pt-100">
+              <!--<md-input-container class="md-block">-->
+                <!--<label>Enter Loan Amount</label>-->
+                <!--<input type="number" ng-model="apply.loanDetails.loanAmount" required>-->
+              <!--</md-input-container>-->
+            <md-slider-container layout="row" layout-wrap>
+              <label flex="80">Select Loan Amount</label>
+              <input type="number" flex ng-model="apply.loanDetails.loanAmount" aria-label="red" aria-controls="red-slider" required>
+
+              <md-slider flex="100" md-discrete ng-model="apply.loanDetails.loanAmount" step="5000" min="10000" max="500000" aria-label="rating">
+              </md-slider>
+            </md-slider-container>
+
+            <md-slider-container layout="row" layout-wrap>
+              <label flex="80">Tenure in Months</label>
+              <input type="number" flex ng-model="apply.loanDetails.tenure" aria-label="red" aria-controls="red-slider" required>
+
+              <md-slider flex="100" md-discrete ng-model="apply.loanDetails.tenure" step="1" min="6" max="60" aria-label="rating">
+              </md-slider>
+            </md-slider-container>
+
+            <div layout="column" layout-align="center center">
+              <md-button class="md-raised md-accent" ng-click="apply.next()">Next</md-button>
+            </div>
+          </form>
+        </md-content>
+      </md-tab>
+      <md-tab label="two">
+        <h2 class="sub-section-title">
+          Current Address
+        </h2>
+        <md-content layout="row" layout-align="center center">
+
+          <form name="loanAddressForm" flex="50" class="loan-application-details pt-100" layout="column">
+          <md-input-container>
+            <label>Enter Pincode</label>
+            <input type="text" ng-model="apply.loanDetails.currentAddress.pincode">
+          </md-input-container>
+
+          <md-input-container>
+            <label>Residence Type</label>
+            <md-select ng-model="apply.loanDetails.currentAddress.residenceType">
+              <md-option value="Self Owned">Self Owned</md-option>
+              <md-option value="Family Owned">Family Owned</md-option>
+              <md-option value="Rented">Rented</md-option>
+              <md-option value="Company Provided">Company Provided</md-option>
+            </md-select>
+          </md-input-container>
+          <div layout="column" layout-align="center center">
+            <md-button class="md-raised md-accent" ng-click="apply.next()">Next</md-button>
+          </div>
+          </form>
+        </md-content>
+      </md-tab>
+      <md-tab label="three">
+        <h2 class="sub-section-title">
+          Permanent Address
+        </h2>
+        <md-content layout="row" layout-align="center center">
+
+          <form name="loanPAddressForm" flex="50" class="loan-application-details pt-100" layout="column">
+            <md-checkbox ng-model="apply.loanDetails.permanentAddress.sameAsCurrentAddress">
+              Same As Current Address
+            </md-checkbox>
+
+            <md-input-container ng-if="!apply.loanDetails.permanentAddress.sameAsCurrentAddress">
+              <label>Enter Pincode</label>
+              <input type="text" ng-model="apply.loanDetails.currentAddress.pincode">
+            </md-input-container>
+
+            <md-input-container ng-if="!apply.loanDetails.permanentAddress.sameAsCurrentAddress">
+              <label>Residence Type</label>
+              <md-select ng-model="apply.loanDetails.currentAddress.residenceType">
+                <md-option value="Self Owned">Self Owned</md-option>
+                <md-option value="Family Owned">Family Owned</md-option>
+                <md-option value="Rented">Rented</md-option>
+                <md-option value="Company Provided">Company Provided</md-option>
+              </md-select>
+            </md-input-container>
+            <div layout="column" layout-align="center center">
+              <md-button class="md-raised md-accent" ng-click="apply.next()">Next</md-button>
+            </div>
+          </form>
+        </md-content>
+      </md-tab>
+      <md-tab label="five">
+        <h2 class="sub-section-title">
+          Upload PAN
+        </h2>
+        <md-content layout="row" layout-align="start start" layout-wrap>
+          <div  flex="50" class="loan-application-details pt-50" layout="column">
+            <div layout="column" layout-align="center center"
+                 class="file-upload-container" ng-model="apply.loanDetails.pan"
+                 ngf-drop ngf-select accept="image/*">
+
+              <md-icon class="material-icons fs-50">cloud_upload</md-icon>
+              <h3 class="mv-5 fw-600 fs-17">Drag & Drop Files Here</h3>
+              <p class="fs-12">or</p>
+
+              <md-button class="md-raised md-primary"
+                         ng-model="apply.loanDetails.pan"
+                         ngf-drop ngf-select accept="image/*">
+                Browse files
+              </md-button>
+            </div>
+
+            <span class="mt-20" ng-if="apply.loanDetails.pan"><strong>Uploaded File</strong></span>
+            <div layout="row" class="mt-10" layout-align="center center" ng-if="apply.loanDetails.pan">
+              <span>1. {{apply.loanDetails.pan.name}}</span>
+              <span flex></span>
+              <span>
+                <md-button class="md-raised md-accent" ng-click="apply.panUploaded = true">
+                  Upload
+                </md-button>
+              </span>
+            </div>
+          </div>
+          <div flex="50" class="pt-20 pl-30" layout="column" layout-padding ng-if="apply.panUploaded">
+            <h3>PAN Details</h3>
+            <span>
+              Name : <strong>DILIP PURI</strong>
+            </span>
+
+            <span>
+              Father Name : <strong>MOHAN PURI</strong>
+            </span>
+
+            <span>
+              Date of Birth : <strong>04/02/1995</strong>
+            </span>
+
+            <span>
+              PAN : <strong>CKBPP8160M</strong>
+            </span>
+          </div>
+          <div layout="column" layout-align="center center" flex="100" ng-if="apply.panUploaded">
+            <md-button class="md-raised md-accent" ng-click="apply.next()">Next</md-button>
+          </div>
+        </md-content>
+      </md-tab>
+
+        <md-tab label="five">
+          <h2 class="sub-section-title">
+            Congratulations
+          </h2>
+          <md-content layout="row" layout-align="center center">
+            <div  flex="40" class="loan-application-details pt-20" layout="column" layout-align="center center">
+              <span class="fs-20">Your Loan has been Approved.</span>
+              <span>You are eligible for</span>
+              <span class="fs-30"><strong><i class="fa fa-inr"></i> 100,000</strong></span>
+              <div layout="column" layout-align="center start" class="full-width mt-30 pl-30" layout-fill ng-init="apply.loanDetails.selectedTenure = 12">
+                <label><strong>Select Tenure</strong></label>
+                <md-radio-group ng-model="apply.loanDetails.selectedTenure" layout="row" class="mt-15">
+                  <md-radio-button value="12" class="md-primary">12 Months</md-radio-button>
+                  <md-radio-button value="24" class="md-primary">24 Months</md-radio-button>
+                  <md-radio-button value="36" class="md-primary">36 Months</md-radio-button>
+                </md-radio-group>
+
+                <span class="mt-15">
+                  Interest Rate : <strong> 15%</strong>
+                </span>
+                <span class="mt-15">
+                  Processing Fee : <strong> 1,500</strong>
+                </span>
+              </div>
+
+              <div layout="column" layout-align="center center" class="mt-50">
+                <span class="fs-11"> (To Provide you loan we need your required document) </span>
+                <md-button class="md-raised md-accent" ng-click="apply.next()">OK</md-button>
+              </div>
+            </div>
+          </md-content>
+        </md-tab>
+        <md-tab label="six">
+          <h2 class="sub-section-title">
+            Upload Aadhar Front
+          </h2>
+          <md-content layout="row" layout-align="start start" layout-wrap>
+              <div  flex="50" class="loan-application-details pt-50" layout="column">
+                <div layout="column" layout-align="center center"
+                     class="file-upload-container" ng-model="apply.loanDetails.aadhar"
+                     ngf-drop ngf-select accept="image/*">
+
+                  <md-icon class="material-icons fs-50">cloud_upload</md-icon>
+                  <h3 class="mv-5 fw-600 fs-17">Drag & Drop Files Here</h3>
+                  <p class="fs-12">or</p>
+
+                  <md-button class="md-raised md-primary"
+                             ng-model="apply.loanDetails.aadhar"
+                             ngf-drop ngf-select accept="image/*">
+                    Browse files
+                  </md-button>
+                </div>
+
+                <span class="mt-20" ng-if="apply.loanDetails.aadhar"><strong>Uploaded File</strong></span>
+                <div layout="row" class="mt-10" layout-align="center center" ng-if="apply.loanDetails.aadhar">
+                  <span>1. {{apply.loanDetails.aadhar.name}}</span>
+                  <span flex></span>
+                  <span>
+                <md-button class="md-raised md-accent" ng-click="apply.aadharUploaded = true">
+                  Upload
+                </md-button>
+              </span>
+                </div>
+              </div>
+              <div flex="50" class="pt-20 pl-30" layout="column" layout-padding ng-if="apply.aadharUploaded">
+                <h3>Aadhar Details</h3>
+                <span>
+              Name : <strong>DILIP PURI</strong>
+            </span>
+
+            <span>
+              Gender : <strong>Male</strong>
+            </span>
+            <span>
+              Birth : <strong>1995</strong>
+            </span>
+
+            <span>
+              Aadhar No : <strong>3668 0367 1285</strong>
+            </span>
+
+            </div>
+            <div layout="column" layout-align="center center" flex="100" ng-if="apply.aadharUploaded">
+              <md-button class="md-raised md-accent" ng-click="apply.next()">Next</md-button>
+            </div>
+          </md-content>
+        </md-tab>
+        <md-tab label="seven">
+          <h2 class="sub-section-title">
+            Upload Aadhar Back
+          </h2>
+          <md-content layout="row" layout-align="start start" layout-wrap>
+            <div  flex="50" class="loan-application-details pt-50" layout="column">
+              <div layout="column" layout-align="center center"
+                   class="file-upload-container" ng-model="apply.loanDetails.aadharBack"
+                   ngf-drop ngf-select accept="image/*">
+
+                <md-icon class="material-icons fs-50">cloud_upload</md-icon>
+                <h3 class="mv-5 fw-600 fs-17">Drag & Drop Files Here</h3>
+                <p class="fs-12">or</p>
+
+                <md-button class="md-raised md-primary"
+                           ng-model="apply.loanDetails.aadharBack"
+                           ngf-drop ngf-select accept="image/*">
+                  Browse files
+                </md-button>
+              </div>
+
+              <span class="mt-20" ng-if="apply.loanDetails.aadharBack"><strong>Uploaded File</strong></span>
+              <div layout="row" class="mt-10" layout-align="center center" ng-if="apply.loanDetails.aadharBack">
+                <span>1. {{apply.loanDetails.aadharBack.name}}</span>
+                <span flex></span>
+                <span>
+                <md-button class="md-raised md-accent" ng-click="apply.aadharBackUploaded = true">
+                  Upload
+                </md-button>
+              </span>
+              </div>
+            </div>
+            <div flex="50" class="pt-20 pl-30" layout="column" layout-padding ng-if="apply.aadharBackUploaded">
+              <h3>Aadhar Details</h3>
+              <span>
+                Address :
+                <strong>D 11/24, Ardee City, Sector 54, Gurgaon, Haryana-122001</strong>
+              </span>
+
+
+            </div>
+            <div layout="column" layout-align="center center" flex="100" ng-if="apply.aadharBackUploaded">
+              <md-button class="md-raised md-accent" ng-click="apply.next()">Next</md-button>
+            </div>
+          </md-content>
+        </md-tab>
+        <md-tab label="two">
+          <h2 class="sub-section-title">
+            Upload Current Address Proof
+          </h2>
+          <md-content layout="row" layout-align="center start">
+            <form name="loanAddressProofForm" flex="50" class="loan-application-details pt-30" layout="column">
+              <span class="fs-11 text-center">(Since your Address in aadhar card is matched with your Permanent Address You only need to provide current address proof to Us.)</span>
+              <div layout="column" layout-align="center center"
+                   class="file-upload-container" ng-model="apply.loanDetails.currentAddressProof"
+                   ngf-drop ngf-select accept="image/*">
+
+                <md-icon class="material-icons fs-50">cloud_upload</md-icon>
+                <h3 class="mv-5 fw-600 fs-17">Drag & Drop Files Here</h3>
+                <p class="fs-12">or</p>
+
+                <md-button class="md-raised md-primary"
+                           ng-model="apply.loanDetails.currentAddressProof"
+                           ngf-drop ngf-select accept="image/*">
+                  Browse files
+                </md-button>
+              </div>
+
+              <span class="mt-20" ng-if="apply.loanDetails.currentAddressProof"><strong>Uploaded File</strong></span>
+              <div layout="row" class="mt-10" layout-align="center center" ng-if="apply.loanDetails.currentAddressProof">
+                <span>1. {{apply.loanDetails.currentAddressProof.name}}</span>
+                <span flex></span>
+                <span>
+                <md-button class="md-raised md-accent" ng-click="apply.currentAddressUploaded = true">
+                  Upload
+                </md-button>
+              </span>
+              </div>
+              <div layout="column" layout-align="center center" flex="100" ng-if="apply.currentAddressUploaded">
+                <md-button class="md-raised md-accent" ng-click="apply.next()">Next</md-button>
+              </div>
+            </form>
+          </md-content>
+        </md-tab>
+        <md-tab label="four">
+          <h2 class="sub-section-title">
+            Employment Details
+          </h2>
+          <md-content layout="row" layout-align="start start" layout-wrap>
+            <form name="loanEmploymentForm" flex="50" class="loan-application-details pt-30" layout="column">
+              <md-input-container>
+                <label>Your Employer Name</label>
+                <input type="text" ng-model="apply.loanDetails.employerDetails.name">
+              </md-input-container>
+
+              <label>Current Employment Duration</label>
+              <div layout="row">
+                <md-input-container flex class="mr-10">
+                  <label>Years</label>
+                  <md-select ng-model="apply.loanDetails.employerDetails.currentEmploymentDuration.years">
+                    <md-option value="{{i}}" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11]">
+                      {{i + ' Years'}}
+                    </md-option>
+                  </md-select>
+                </md-input-container>
+                <md-input-container flex class="ml-10">
+                  <label>Months</label>
+                  <md-select ng-model="apply.loanDetails.employerDetails.currentEmploymentDuration.months">
+                    <md-option value="{{i}}" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11]">
+                      {{i + ' Months'}}
+                    </md-option>
+                  </md-select>
+                </md-input-container>
+              </div>
+
+              <label>Total Work Experience</label>
+              <div layout="row">
+                <md-input-container flex class="mr-10">
+                  <label>Years</label>
+                  <md-select ng-model="apply.loanDetails.employerDetails.workExperience.years">
+                    <md-option value="{{i}}" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11]">
+                      {{i + ' Years'}}
+                    </md-option>
+                  </md-select>
+                </md-input-container>
+                <md-input-container flex class="ml-10">
+                  <label>Months</label>
+                  <md-select ng-model="apply.loanDetails.employerDetails.workExperience.months">
+                    <md-option value="{{i}}" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11]">
+                      {{i + ' Months'}}
+                    </md-option>
+                  </md-select>
+                </md-input-container>
+              </div>
+            </form>
+            <div layout="column" flex="50" class="pl-20 pt-30" layout-fill>
+              <label><strong>Uppload Last 3 Salary Slips</strong></label>
+              <div layout="column" layout-align="center center"
+                   class="file-upload-container mt-15" ng-model="apply.loanDetails.employerDetails.salarySlips"
+                   ngf-drop ngf-select="apply.uploadSalarySlips(apply.loanDetails.employerDetails.salarySlips)" accept="image/*" ngf-multiple="true">
+
+                <md-icon class="material-icons fs-50">cloud_upload</md-icon>
+                <h3 class="mv-5 fw-600 fs-17">Drag & Drop Files Here</h3>
+                <p class="fs-12">or</p>
+
+                <md-button class="md-raised md-primary"
+                           ng-model="apply.loanDetails.employerDetails.salarySlips"
+                           ngf-drop ngf-select="apply.uploadSalarySlips(apply.loanDetails.employerDetails.salarySlips)" accept="image/*"
+                           ngf-multiple="true">
+                  Browse files
+                </md-button>
+              </div>
+
+              <span class="mt-20" ng-if="apply.uploadedSalarySlips.length> 0"><strong>Uploaded File</strong></span>
+              <div layout="row" class="mt-10" layout-align="center center" ng-if="apply.uploadedSalarySlips" ng-repeat="slip in apply.uploadedSalarySlips">
+                <span>{{$index + 1}}. {{slip.name}}</span>
+                <span flex></span>
+              </div>
+            </div>
+            <div layout="column" layout-align="center center" flex="100">
+              <md-button class="md-raised md-accent" ng-click="apply.next()">Next</md-button>
+            </div>
+          </md-content>
+        </md-tab>
+        <md-tab label="tnak you">
+          <md-content layout="row" layout-align="center center">
+            <div  flex="40" class="loan-application-details" layout="column" layout-align="center center">
+              <span class="fs-20">Thank You for applying loan.</span>
+              <span>Our customer executive will get back to you Shortly.</span>
+            </div>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-content>
+
+  </div>
+
+</div>

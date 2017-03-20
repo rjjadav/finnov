@@ -7,10 +7,12 @@
   angular.module('app.main.profile')
     .controller('ProfileController', ProfileController)
 
-  ProfileController.$inject=[];
+  ProfileController.$inject=['$mdDialog'];
 
-  function ProfileController() {
+  function ProfileController($mdDialog) {
     var profile = this;
+    profile.editAccountInfo = editAccountInfo;
+
     profile.profileInfo = {
       name: 'Rahul Jadav',
       mobileNumber: '9909844451',
@@ -94,5 +96,25 @@
         kyc: 'IA'
       },
     ];
+
+    function editAccountInfo(ev){
+      $mdDialog.show({
+        templateUrl: 'app/main/profile/account-info/account-info.html',
+        controller: 'AccountInfoController',
+        controllerAs: 'info',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose:true,
+        fullscreen: true,
+        locals:{
+          accountInfo: angular.copy(profile.profileInfo)
+        }
+      })
+      .then(function(data){
+        if(data.profileInfo){
+          profile.profileInfo = data.profileInfo;
+        }
+      });
+    }
   }
 })();

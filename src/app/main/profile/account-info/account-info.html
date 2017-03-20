@@ -1,0 +1,60 @@
+<md-dialog id="auth-dialog" flex="30">
+  <form ng-cloak name="infoForm">
+    <md-toolbar class="auth-toolbar">
+      <div class="md-toolbar-tools">
+        <div layout="column">
+          <h1>Edit Account Info</h1>
+        </div>
+        <span flex layout="row" layout-align="end center">
+          <md-button class="md-icon-button" ng-click="info.cancel()">
+            <md-icon class="material-icons">clear</md-icon>
+          </md-button>
+        </span>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <div layout="column">
+          <!--<md-input-container>-->
+            <!--<label>Name</label>-->
+            <!--<input type="text" ng-model="info.accountInfo.name" disabled/>-->
+          <!--</md-input-container>-->
+          <md-input-container>
+            <label>Mobile Number</label>
+            <input type="text" name="mobile" ng-model="info.accountInfo.mobileNumber" ng-maxlength="10" ng-pattern="/[7-9]{1}[0-9]{9}/" required/>
+            <div ng-messages="infoForm.mobile.$error" ng-if="infoForm.mobile.$dirty || infoForm.mobile.$touched">
+              <div ng-message="required">Please enter Mobile Number. This is Required.</div>
+              <div ng-message="pattern, maxlength">Please enter valid 10 Digit Mobile Number. This doesn't look like Mobile Number</div>
+            </div>
+          </md-input-container>
+          <md-input-container>
+            <label>Email</label>
+            <input type="email" name="email" ng-model="info.accountInfo.email" ng-pattern="/^.+@.+\..+$/" required />
+            <div ng-messages="infoForm.email.$error" ng-if="infoForm.email.$dirty || infoForm.email.$touched">
+              <div ng-message="required">Please enter Email. This is Required.</div>
+              <div ng-message="pattern">Please enter valid Email address. This doesn't look like Email</div>
+            </div>
+          </md-input-container>
+
+          <!--<md-input-container>-->
+            <!--<label>Gender</label>-->
+            <!--<md-select ng-model="info.accountInfo.gender" disabled>-->
+              <!--<md-option value="male">MALE</md-option>-->
+              <!--<md-option value="female">FEMALE</md-option>-->
+            <!--</md-select>-->
+          <!--</md-input-container>-->
+        </div>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <div layout="row" layout-margin flex="100">
+        <span flex></span>
+        <md-button class="md-raised md-primary" ng-click="info.save()">
+          Save
+        </md-button>
+      </div>
+
+    </md-dialog-actions>
+  </form>
+</md-dialog>
+

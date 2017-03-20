@@ -1,0 +1,37 @@
+#apply-loan{
+  md-tabs.md-default-theme md-tabs-wrapper, md-tabs md-tabs-wrapper {
+    display: none;
+  }
+
+  .sub-section-title {
+    padding: 12px 0;
+    //border-bottom: 1px solid rgba(0,0,0,.2);
+    margin: 5px 20px 10px 20px;
+    font-weight: 500;
+    text-align: center;
+    //font-size: 24px;
+  }
+
+  .loan-application-details{
+    min-height: 400px;
+  }
+
+  md-slider {
+    .md-sign {
+      width: 60px !important;
+      left: -28px;
+      opacity: 0;
+      &:after {
+        opacity: 1;
+        left: 15px;
+      }
+    }
+
+    &:focus{
+      .md-sign{
+        opacity: 1;
+      }
+    }
+  }
+
+}

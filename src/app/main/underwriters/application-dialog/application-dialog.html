@@ -1,0 +1,17 @@
+<md-dialog layout="column" >
+  <md-dialog-content class="pv-100 ph-100">
+    <div layout="column" layout-align="center center">
+
+      <span>Your Application number is : </span>
+      <span><strong>{{appDialog.applicationNumber}}</strong></span>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions layout="row">
+    <div layout="row" layout-margin flex="100" layout-align="center center">
+      <md-button class="md-raised md-accent" ng-click="appDialog.hide()">
+        OK
+      </md-button>
+    </div>
+
+  </md-dialog-actions>
+</md-dialog>
