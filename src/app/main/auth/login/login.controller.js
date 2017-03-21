@@ -14,6 +14,7 @@
     login.cancel = cancel;
     login.signup = signup;
     login.forgetPassword = forgetPassword;
+    login.fnLogin = fnLogin;
 
     function cancel(){
       $mdDialog.cancel();
@@ -25,6 +26,10 @@
 
     function forgetPassword() {
       $mdDialog.hide({next: 'forget_password'});
+    }
+
+    function fnLogin(){
+      $mdDialog.hide({login : true});
     }
   }
 })();

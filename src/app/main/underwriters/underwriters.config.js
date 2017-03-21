@@ -45,5 +45,15 @@
         }
       }
     })
+    .state('app.main_underwriters.application-analysis',{
+      url:'/analysis/:applicationId',
+      views: {
+        'content@app': {
+          templateUrl: 'app/main/underwriters/application-analysis/application-analysis.html',
+          controller: 'ApplicationAnalysisController',
+          controllerAs: 'analysis'
+        }
+      }
+    })
   }
 })();

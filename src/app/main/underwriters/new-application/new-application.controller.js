@@ -13,7 +13,12 @@
     var app = this;
     app.uploadBankStatement = uploadBankStatement;
 
+    app.applicationNumber = undefined;
+    app.bankStatementUploaded = false;
+
     function uploadBankStatement(ev,bankStatement){
+      app.bankStatementUploaded = true;
+      app.applicationNumber = '123456789012'
       console.log(bankStatement);
       $mdDialog.show({
         templateUrl: 'app/main/underwriters/application-dialog/application-dialog.html',
@@ -24,7 +29,7 @@
         clickOutsideToClose:true,
         fullscreen: true,
         locals:{
-          applicationNumber : '123456789012'
+          applicationNumber : app.applicationNumber
         }
       })
       .then(function(data){

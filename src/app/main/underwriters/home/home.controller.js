@@ -7,9 +7,9 @@
   angular.module('app.main.underwriters')
     .controller('UnderwritersHomeController', UnderwritersHomeController);
 
-  UnderwritersHomeController.$inject = ['$mdDialog'];
+  UnderwritersHomeController.$inject = ['$state','$mdDialog'];
 
-  function UnderwritersHomeController($mdDialog){
+  function UnderwritersHomeController($state, $mdDialog){
     var uh = this;
     uh.login = login;
 
@@ -25,6 +25,10 @@
         fullscreen: true
       })
         .then(function(data){
+
+          if(data.login){
+            $state.go('app.main_underwriters.applications-list')
+          }
           // if(data.next && data.next == 'signup') header.register(ev);
           // else if(data.next && data.next == 'forget_password') header.forgetPassword(ev);
         });

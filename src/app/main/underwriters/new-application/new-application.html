@@ -39,7 +39,7 @@
 
     <md-content class="md-whiteframe-2dp brad-3 p-16 mv-10" layout="column">
       <h2 class="sub-section-title">
-        Upload Cibil
+        Upload Cibil<span class="fs-14">(optional)</span>
       </h2>
 
       <div layout="column" layout-align="center center" class="file-upload-container mt-20" ng-model="app.newApp.selectedCibilFile" ngf-drop accept="application/pdf" ngf-multiple="true">
@@ -64,6 +64,13 @@
         </div>
       </div>
 
+    </md-content>
+
+    <md-content class="md-whiteframe-2dp brad-3 p-16 mv-10" layout="row" layout-align="center center" ng-if="app.bankStatementUploaded">
+
+      <md-button class="md-raised md-primary ph-50 pv-5 font-white fs-16" ui-sref="app.main_underwriters.application-analysis({applicationId:app.applicationNumber})">
+        Show Analysis
+      </md-button>
     </md-content>
   </div>
 </div>

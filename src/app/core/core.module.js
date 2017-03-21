@@ -14,7 +14,8 @@
     'ui.router',
     'ngMaterial',
     'ngFileUpload',
-    'toastr'
+    'toastr',
+    'vAccordion'
   ])
     .config(config);
 
