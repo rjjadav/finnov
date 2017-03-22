@@ -3,9 +3,9 @@
     <div layout="row" flex layout-align="center center">
       <h1 flex>Application Analysis</h1>
 
-      <md-button class="md-raised md-accent ph-30 pv-5 font-white font-bold no-margin" ui-sref="app.main_underwriters.new-application">
-        New Application
-      </md-button>
+      <!--<md-button class="md-raised md-accent ph-30 pv-5 font-white font-bold no-margin" ui-sref="app.main_underwriters.new-application">-->
+        <!--New Application-->
+      <!--</md-button>-->
 
     </div>
     <md-content class="md-whiteframe-2dp brad-3 p-20 analysis-container" layout="column">
@@ -130,9 +130,9 @@
 
       <div layout="row">
         <span flex></span>
-        <md-button class="md-raised md-primary">Approve</md-button>
-        <md-button class="md-raised md-warn md-hue-3">Reject</md-button>
-        <md-button class="md-raised">Later</md-button>
+        <md-button class="md-raised md-primary" ui-sref="app.main_underwriters.applications-list">Approve</md-button>
+        <md-button class="md-raised md-warn md-hue-3" ui-sref="app.main_underwriters.applications-list">Reject</md-button>
+        <md-button class="md-raised" ui-sref="app.main_underwriters.applications-list">Later</md-button>
       </div>
     </md-content>
   </div>
