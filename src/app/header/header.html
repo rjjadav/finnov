@@ -11,23 +11,26 @@
       <a class="link" ui-sref="app.main_home">Home</a>
     </li>
     <li ui-sref-active="active">
-      <a class="link">About Us</a>
+      <a class="link" ui-sref="app.main_about">About Us</a>
     </li>
     <li ui-sref-active="active">
-      <a class="link">Contact Us</a>
-    </li >
-    <li ui-sref-active="active">
-      <a class="link" ui-sref="app.main_underwriters.home">Underwriters</a>
-    </li >
-    <li ng-if="header.loginStatus == false">
-      <a class="link" ng-click="header.preLogin($event,'login')">Login</a>
+      <a class="link" ng-click="header.goToContact()">Contact Us</a>
     </li>
-    <li ng-if="header.loginStatus == false" >
-      <a class="link" ng-click="header.preLogin($event, 'register')">Register</a>
-    </li>
-    <li ui-sref-active="active" ng-if="header.loginStatus == true">
-      <a class="link" ui-sref="app.main_profile">Rahul Jadav</a>
-    </li>
+    <!--<li ui-sref-active="active">-->
+      <!--<a class="link">Contact Us</a>-->
+    <!--</li >-->
+    <!--<li ui-sref-active="active">-->
+      <!--<a class="link" ui-sref="app.main_underwriters.home">Underwriters</a>-->
+    <!--</li >-->
+    <!--<li ng-if="header.loginStatus == false">-->
+      <!--<a class="link" ng-click="header.preLogin($event,'login')">Login</a>-->
+    <!--</li>-->
+    <!--<li ng-if="header.loginStatus == false" >-->
+      <!--<a class="link" ng-click="header.preLogin($event, 'register')">Register</a>-->
+    <!--</li>-->
+    <!--<li ui-sref-active="active" ng-if="header.loginStatus == true">-->
+      <!--<a class="link" ui-sref="app.main_profile">Rahul Jadav</a>-->
+    <!--</li>-->
   </ul>
 
   <md-menu md-position-mode="target-right target" hide-gt-sm>
@@ -37,30 +40,35 @@
 
     <md-menu-content width="4">
       <md-menu-item>
-        <md-button>
+        <md-button ui-sref="app.main_home">
           Home
         </md-button>
       </md-menu-item>
       <md-menu-item>
-        <md-button>
+        <md-button ui-sref="app.main_about">
           About Us
         </md-button>
       </md-menu-item>
       <md-menu-item>
-        <md-button>
-          Contact
+        <md-button ng-click="header.goToContact()">
+          Contact Us
         </md-button>
       </md-menu-item>
-      <md-menu-item>
-        <md-button ng-click="header.preLogin($event, 'login')">
-          Login
-        </md-button>
-      </md-menu-item>
-      <md-menu-item>
-        <md-button ng-click="header.preLogin($event, 'register')">
-          Register
-        </md-button>
-      </md-menu-item>
+      <!--<md-menu-item>-->
+        <!--<md-button>-->
+          <!--Contact-->
+        <!--</md-button>-->
+      <!--</md-menu-item>-->
+      <!--<md-menu-item>-->
+        <!--<md-button ng-click="header.preLogin($event, 'login')">-->
+          <!--Login-->
+        <!--</md-button>-->
+      <!--</md-menu-item>-->
+      <!--<md-menu-item>-->
+        <!--<md-button ng-click="header.preLogin($event, 'register')">-->
+          <!--Register-->
+        <!--</md-button>-->
+      <!--</md-menu-item>-->
     </md-menu-content>
   </md-menu>
 </div>

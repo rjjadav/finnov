@@ -42,6 +42,7 @@ body{
     padding: 10px 20px;
     font-size: 18px;
     border-left: 2px solid $color-default;
+    text-align: justify;
   }
 
 
@@ -58,6 +59,25 @@ body{
     }
   }
 
+
+}
+.footer-container {
+  background: $color-footer-container;
+  padding: 55px 0;
+
+  .footer-content{
+    .footer-title{
+      color: $color-white;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    p{
+      color: $color-footer-content;
+    }
+  }
+
+
 }
 .footer-copyright-section{
   line-height: 45px;
@@ -67,4 +87,23 @@ body{
   //bottom: 0;
   //left: 0;
   //right:0;
+}
+
+.owl-dots {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+
+.owl-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  border: 1px solid #ccc;
+  background: $color-label;
+  margin-right: 5px;
+  display: inline-block;
+  &.active {
+    background: $color-default;
+  }
 }

@@ -29,7 +29,7 @@
       .hero-sub-heading{
         font-size: 20px;
         font-weight: 400;
-        line-height: 0px;
+        //line-height: 0px;
         color: #e5e5e5;
       }
 
@@ -75,6 +75,39 @@
         margin: 0 0 10px;
       }
     }
+  }
+
+  .our-team{
+    padding: 100px 0;
+
+    .team-member-widget{
+      margin: 35px 10px;
+      position: relative;
+      width: 250px;
+      min-width: 270px;
+      max-width: 250px;
+      height: 350px;
+      min-height: 350px;
+      max-height: 350px;
+      //box-shadow: 0 1px 4px rgba(0,0,0,0.26);
+
+      img{
+        height:270px;
+        width:100%;
+      }
+
+      .team-member-info {
+        height: 75px;
+        background: #fff;
+        padding: 5px 20px;
+
+        .fa {
+          color:  $color-linkedin;
+        }
+      }
+    }
+
+
   }
 
   .how-it-works{
@@ -148,49 +181,32 @@
       }
     }
   }
+}
 
-  .footer-container {
-    background: $color-footer-container;
-    padding: 55px 0;
+.social-media{
+  i {
+    height: 40px;
+    width:40px;
+    color: $color-white;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    background: $color-accent;
+    transtion: all 0.3s ease-in-out;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
 
-    .footer-content{
-      .footer-title{
-        color: $color-white;
-        font-size: 20px;
-        font-weight: 700;
-      }
-
-      p{
-        color: $color-footer-content;
-      }
+    &.fa-facebook:hover {
+      background: $color-facebook;
+      transition: all 0.3s ease-in-out;
     }
 
-    .social-media{
-      i {
-        height: 40px;
-        width:40px;
-        color: $color-white;
-        line-height: 40px;
-        text-align: center;
-        border-radius: 50%;
-        background: $color-accent;
-        transtion: all 0.3s ease-in-out;
-        box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
-
-        &.fa-facebook:hover {
-          background: $color-facebook;
-          transition: all 0.3s ease-in-out;
-        }
-
-        &.fa-twitter:hover {
-          background: $color-twitter;
-          transition: all 0.3s ease-in-out;
-        }
-        &.fa-linkedin:hover {
-          background: $color-linkedin;
-          transition: all 0.3s ease-in-out;
-        }
-      }
+    &.fa-twitter:hover {
+      background: $color-twitter;
+      transition: all 0.3s ease-in-out;
+    }
+    &.fa-linkedin:hover {
+      background: $color-linkedin;
+      transition: all 0.3s ease-in-out;
     }
   }
 }

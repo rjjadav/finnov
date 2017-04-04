@@ -15,7 +15,9 @@
     'ngMaterial',
     'ngFileUpload',
     'toastr',
-    'vAccordion'
+    'vAccordion',
+    'angular-owl-carousel',
+    'ngMap'
   ])
     .config(config);
 

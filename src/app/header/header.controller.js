@@ -7,8 +7,8 @@
   angular.module('app.header')
     .controller('HeaderController',HeaderController);
 
-  HeaderController.$inject =['$state','$mdMenu','$mdDialog','UserService'];
-  function HeaderController($state, $mdMenu, $mdDialog, UserService) {
+  HeaderController.$inject =['$anchorScroll','$location','$state','$mdMenu','$mdDialog','UserService'];
+  function HeaderController($anchorScroll, $location, $state, $mdMenu, $mdDialog, UserService) {
 
     var header = this;
     header.preLogin = preLogin;
@@ -17,6 +17,7 @@
     header.forgetPassword = forgetPassword;
     header.openMenu = openMenu;
     header.goto = goto;
+    header.goToContact = goToContact;
 
     header.loginStatus = UserService.getLoginStatus();
     header.username = UserService.getUsername();
@@ -102,6 +103,33 @@
 
     function goto(state){
       $state.go(state)
+    }
+
+    function goToContact(){
+      $location.path("/");
+      // $(window).on("load", function(){
+        // $location.hash('contact-us');
+        // $anchorScroll();
+        if ($location.hash() !== 'contact-us') {
+          // set the $location.hash to `newHash` and
+          // $anchorScroll will automatically scroll to it
+          $location.hash('contact-us');
+        } else {
+          // call $anchorScroll() explicitly,
+          // since $location.hash hasn't changed
+          $anchorScroll();
+        }
+      // });
+
+      // if ($location.hash() !== 'contact-us') {
+      //   // set the $location.hash to `newHash` and
+      //   // $anchorScroll will automatically scroll to it
+      //   $location.hash('contact-us');
+      // } else {
+      //   // call $anchorScroll() explicitly,
+      //   // since $location.hash hasn't changed
+      //   $anchorScroll();
+      // }
     }
   }
 })();
