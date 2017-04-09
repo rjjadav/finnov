@@ -84,5 +84,7 @@
     $mdThemingProvider.theme('default')
       .primaryPalette('defaultBlueTheme')
       .accentPalette('accentTheme')
+
+
   }
 })();
