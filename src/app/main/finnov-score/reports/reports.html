@@ -1,83 +1,91 @@
-<div layout="column" class="full-height">
+<div class="hero-section full-width" layout="row" layout-align="center start">
+	<div layout="row" flex="85" layout-margin>
+		<h1 class="fw-300" flex>Reports</h1>
+		<div layout="row" layout-align="center center">
+			<p>
+				Generate Finnov Score of this month
+			</p>
+			<md-button class="md-raised ph-30" ui-sref="app.main_finnov-score.generate">
+				Generate Now
+			</md-button>
+		</div>
+	</div>
+</div>
+<div layout="row" class="full-height hero-section-overlay" layout-align="center start">
+	<md-content
+	class="md-whiteframe-2dp brad-3 finnov-score-container mb-16 bg-white"
+	layout="column"
+	flex="85"
+	style="min-height: calc(100vh - 215px)">
+		<div layout="column" class="full-height">
+			<div layout="column" class="sub-section-content" layout-fill layout-align="center center" flex ng-if="false">
+				<div layout="column" layout-align="center center">
+					<md-icon class="fa fa-file-pdf-o sub-section-icon"></md-icon>
+					<p>You don't have generated Finnov Report.</p>
+					<md-button class="md-raised md-accent font-white font-bold" ui-sref="app.main_finnov-score.generate">
+						Generate Finnov Score
+					</md-button>
+				</div>
+			</div>
 
-  <h2 class="sub-section-title">
-    Reports
-  </h2>
-  <div layout="column" class="sub-section-content" layout-fill layout-align="center center" flex ng-if="false">
-    <div layout="column" layout-align="center center">
-      <md-icon class="fa fa-file-pdf-o sub-section-icon"></md-icon>
-      <p>You don't have generated Finnov Report.</p>
-      <md-button class="md-raised md-accent ph-20 pv-10 font-white font-bold" ui-sref="app.main_finnov-score.generate">
-        Generate Finnov Score
-      </md-button>
-    </div>
-  </div>
+			<div layout="column" class="sub-section-content" layout-fill layout-align="start center" flex ng-if="true">
+				<div layout="row" layout-fill class="no-margin">
+					<md-list flex="100" class="p-0">
+						<md-divider></md-divider>
+						<md-list-item layout="row" flex>
+							<span flex="30"  layout="row" layout-align="center center">
+								<strong>Month</strong>
+							</span>
+							<span flex="30"  layout="row" layout-align="center center">
+								<strong>Score(Out of 100)</strong>
+							</span>
+							<!--<span flex="40" layout="row" layout-align="center center">-->
+							<!--<strong>Report</strong>-->
+							<!--</span>-->
+						</md-list-item>
+						<md-divider></md-divider>
+						<md-list-item layout="row" flex ng-click="null">
+							<span flex="30"  layout="row" layout-align="center center">
+								November 2016
+							</span>
+							<span flex="30"  layout="row" layout-align="center center">
+								73
+							</span>
 
-  <div layout="column" class="sub-section-content ph-20" layout-fill layout-align="start center" flex ng-if="true">
-    <!--<div class="full-width">-->
-      <div layout="row" layout-align="center center" layout-fill>
-        <span flex></span>
-        <p>
-          <b>Generate Finnov Score of this month</b>
-        </p>
-        <md-button class="md-raised md-primary ph-30 pv-5 font-white font-bold" ui-sref="app.main_finnov-score.generate">
-          Generate Now
-        </md-button>
-      </div>
-      <div layout="row" layout-fill class="no-margin">
-      <md-list flex="100">
-        <md-divider></md-divider>
-        <md-list-item layout="row" flex>
-          <span flex="30"  layout="row" layout-align="center center">
-            <strong>Month</strong>
-          </span>
-          <span flex="30"  layout="row" layout-align="center center">
-            <strong>Score(Out of 100)</strong>
-          </span>
-          <!--<span flex="40" layout="row" layout-align="center center">-->
-            <!--<strong>Report</strong>-->
-          <!--</span>-->
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item layout="row" flex ng-click="null">
-          <span flex="30"  layout="row" layout-align="center center">
-            November 2016
-          </span>
-          <span flex="30"  layout="row" layout-align="center center">
-            73
-          </span>
+							<span flex="40" layout="row" layout-align="end center">
+								<md-button class="md-accent action-button">
+									<md-icon class="fa fa-file-pdf-o"></md-icon>
+									Download Report
+								</md-button>
+							</span>
+							<md-divider flex="100"></md-divider>
+						</md-list-item>
+						<md-list-item layout="row" flex ng-click="null">
+							<span flex="30"  layout="row" layout-align="center center">
+								December 2016
+							</span>
+							<span flex="30"  layout="row" layout-align="center center">
+								78
+							</span>
+							<span flex="40" layout="row" layout-align="end center">
+								<md-button class="md-accent action-button" ng-click="null">
+									<md-icon class="fa fa-file-pdf-o"></md-icon>
+									Download Report
+								</md-button>
+							</span>
+							<md-divider flex="100"></md-divider>
+						</md-list-item>
+					</md-list>
+				</div>
+				<!--</div>-->
 
-          <span flex="40" layout="row" layout-align="end center">
-            <md-button class="md-accent action-button">
-              <md-icon class="fa fa-file-pdf-o"></md-icon>
-              Download Report
-            </md-button>
-          </span>
-          <md-divider flex="100"></md-divider>
-        </md-list-item>
-        <md-list-item layout="row" flex ng-click="null">
-          <span flex="30"  layout="row" layout-align="center center">
-            December 2016
-          </span>
-          <span flex="30"  layout="row" layout-align="center center">
-            78
-          </span>
-          <span flex="40" layout="row" layout-align="end center">
-            <md-button class="md-accent action-button" ng-click="null">
-              <md-icon class="fa fa-file-pdf-o"></md-icon>
-              Download Report
-            </md-button>
-          </span>
-          <md-divider flex="100"></md-divider>
-        </md-list-item>
-      </md-list>
-      </div>
-    <!--</div>-->
-  </div>
-  <div layout="column" layout-align="center center">
-    <md-button class="md-raised md-accent ph-40 pv-10 font-white font-bold" ui-sref="app.main_apply-loan">
-      Apply for new Loan
-    </md-button>
-  </div>
+				<div layout="column" layout-align="center center">
+					<md-button class="md-raised md-accent ph-30 font-white font-bold" ui-sref="app.main_apply-loan">
+						Apply for new Loan
+					</md-button>
+				</div>
+			</div>
+		</div>
+	</md-content>
 </div>
 

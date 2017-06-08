@@ -1,6 +1,7 @@
 <div id="layout-vertical-navigation-fullwidth-toolbar" layout="column" flex class="full-height">
-  <header>
-    <md-toolbar id="toolbar" class="md-whiteframe-5dp fix" layout="row" layout-align="center start"  ui-view="header"></md-toolbar>
+  <header class="h-64">
+    <md-toolbar id="toolbar" class="fix" layout="row" layout-align="center start"  ui-view="header"></md-toolbar>
+    <!-- md-whiteframe-5dp  -->
   </header>
   <div id="main-container" layout="column" flex class="full-height">
     <div id="content-container" layout="column" flex class="full-height">
@@ -9,7 +10,7 @@
     <div style="clear: both"></div>
 
     <div class="footer-copyright-section">
-      <div layout="row" layout-align="center center">
+      <div layout="row" layout-align="center center" layout-fill>
         <div flex="85">
           &copy; 2017, Finnov Software Services Private Limited. All Rights Reserved.
         </div>

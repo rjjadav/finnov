@@ -13,6 +13,7 @@
     'app.main.profile',
     'app.main.underwriters',
     'app.main.apply-loan',
+    'app.main.personal-loan'
   ])
     .config(config);
 

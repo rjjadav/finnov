@@ -1,10 +1,14 @@
 body{
-  background: #f3f3f3;
+  background: $color-bg-dark;
 }
 
 #main-container{
-  padding-top: 60px;
-  //padding-bottom: 45px;
+  /*padding-top: 60px;*/
+  /*padding-bottom: 45px;*/
+
+  md-content{
+    background:  #fff !important;
+  }
 
   .section-dark {
     background: $color-bg-dark;
@@ -12,6 +16,10 @@ body{
 
   .section-white {
     background: $color-white;
+  }
+
+  .section-primary {
+    background: $color-default;
   }
 
   .section-title-bg {
@@ -60,6 +68,20 @@ body{
   }
 
 
+  .application-container{
+    md-tabs-canvas{
+      height: 59px;
+      md-pagination-wrapper{
+        height: inherit;
+
+        .md-tab {
+          line-height: 40px;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+
 }
 .footer-container {
   background: $color-footer-container;
@@ -80,7 +102,8 @@ body{
 
 }
 .footer-copyright-section{
-  line-height: 45px;
+  /*line-height: 45px;*/
+  height: 45px;
   background: #222222;
   color: #999;
   //position: absolute;
@@ -106,4 +129,15 @@ body{
   &.active {
     background: $color-default;
   }
+}
+
+.hero-section {
+  height: 150px;
+  background: $color-default;
+  color: $color-white;
+  padding-top: 16px;
+}
+
+.hero-section-overlay{
+  margin-top: -60px;
 }

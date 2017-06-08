@@ -1,7 +1,9 @@
 #toolbar{
   height:64px;
-  background: $color-white;
-  color: $color-nav-toolbar;
+  /*background:  $color-white;*/
+  background: #2e5eac;
+  /*color: $color-nav-toolbar;*/
+  color: $color-white;
   &.fix{
     position: fixed;
   }
@@ -16,7 +18,7 @@
     h2{
       margin-left: 10px;
       font-size: 28px;
-      font-weight: 700;
+      /*font-weight: 700;*/
     }
   }
 
@@ -25,7 +27,8 @@
     margin: 0;
     padding: 0;
     height:100%;
-    color: $color-nav-toolbar-link;
+    /*color: $color-nav-toolbar-link;*/
+    color: $color-white;
 
     li {
       float: left;
@@ -33,21 +36,23 @@
 
       .link {
         font-size: 17px;
-        font-weight: 600;
+        /*font-weight: 600;*/
         display: block;
         padding: 21px 5px;
         margin-right: 40px;
         cursor: pointer;
 
         &:hover{
-          color: $color-nav-toolbar;
+          /*color: $color-nav-toolbar;*/
+          color: $color-white;
         }
       }
 
       &.active{
         .link{
-          border-bottom: 3px solid $color-default;
-          color: $color-default;
+          /*border-bottom: 3px solid $color-default;*/
+          /*color: $color-default;*/
+          color: $color-white;
         }
       }
     }

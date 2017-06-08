@@ -437,5 +437,9 @@ $border-style: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .font-default{
-  color: $color-default;
+  color: $color-default !important;
+}
+
+.text-center {
+  text-align: center;
 }
